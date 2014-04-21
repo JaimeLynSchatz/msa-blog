@@ -5,14 +5,14 @@ feature 'Posts' do
     visit new_post_path
     fill_in 'Title', with: 'Rails is Awesome!'
     fill_in 'Text', with: 'It really is.'
-    click_button 'Save Post'
+    click_button 'Create Post'
     expect(current_path).to eq post_path(Post.where(title: 'Rails is Awesome!').first)
   end
 
   scenario 'cannot be created without a title' do
     visit new_post_path
     fill_in 'Title', with: ''
-    click_button 'Save Post'
+    click_button 'Create Post'
     expect(page).to have_content("Title can't be blank")
   end
 
@@ -63,11 +63,21 @@ feature 'Posts' do
     expect(page).to have_content('My second post')
   end
 
+  scenario 'can be deleted from link on posts page', js: true do
+    visit posts_path
+    within 'tr:last-child' do
+      page.driver.accept_js_confirms!
+      click_link 'Destroy'
+      expect(current_path).to eq posts_path
+      expect(page).not_to have_content('My second post')
+    end
+  end
+  
   scenario 'can be edited' do
     visit 'can be edited' do
       visit edit_post_path(@post1)
       fill_in 'Title', with: 'My first post has a new title'
-      click_button 'Save Post'
+      click_button 'Update Post'
       expect(current_path).to eq post_path(@post1)
       expect(page).to have_content('My first post has a new title')
     end      
