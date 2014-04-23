@@ -5,6 +5,13 @@ gem 'rails', '4.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# attempts to workaround weird railties/bcrypt bundle install error
+gem 'bcrypt-ruby'
+gem 'authlogic', '3.4.0'
+gem 'scrypt'
+gem 'railties'
+# end attempts to workaround weird railties/bcrupt bundle install error
+
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'jbuilder', '~> 1.2'
