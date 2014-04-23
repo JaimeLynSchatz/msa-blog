@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'brcrypt-ruby', '~>3.0.1', :github => 'rking/bcrypt-ruby'
 gem 'rails', '4.0.4'
 
 # Use postgresql as the database for Active Record
