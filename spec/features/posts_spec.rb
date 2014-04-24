@@ -43,7 +43,7 @@
  
        scenario 'can be edited from link on posts page' do
          visit posts_path
-         within 'tr:last-child' do
+         within 'tr:last' do
            click_link 'Edit'
            expect(current_path).to eq edit_post_path(@post2)
          end
@@ -65,7 +65,7 @@
 
       scenario 'can be deleted fro link on posts page', js: true do
          visit posts_path
-         within 'tr:last-child' do
+         within 'tr:last' do
            page.driver.accept_js_confirms!
            click_link 'Destroy'
            expect(current_path).to eq posts_path
@@ -90,7 +90,7 @@
  
        scenario 'can be viewed from link on posts page' do
          visit posts_path
-         within 'tr:last-child' do
+         within 'tr:last' do
            click_link 'Show'
            expect(current_path).to eq post_path(@post2)
          end
