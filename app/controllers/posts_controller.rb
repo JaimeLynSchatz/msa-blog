@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     #  use render text: below as a quickie workaround
     #render text: params[:post].inspect
-   @post = create_user.posts.build(params[:post].permit(:title, :text))
+   @post = current_user.posts.build(params[:post].permit(:title, :text))
 
     if @post.save
       redirect_to @post

@@ -9,7 +9,7 @@ before_filter :authenticate_user!
 
   def destroy
     @post = Post.find(params[:post_id])
-    current_user.comments.where(post_id: params[:post_id], id: params[:id].destroy_all
+    current_user.comments.where(post_id: params[:post_id], id: params[:id]).destroy_all
     redirect_to post_path(@post)
   end
 end
