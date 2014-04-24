@@ -9,7 +9,7 @@ gem 'pg'
 gem 'bcrypt-ruby'
 gem 'authlogic', '3.4.0'
 gem 'scrypt'
-gem 'railties'
+gem 'railties', '4.0.4'
 # end attempts to workaround weird railties/bcrupt bundle install error
 
 gem 'coffee-rails', '~> 4.0.0'

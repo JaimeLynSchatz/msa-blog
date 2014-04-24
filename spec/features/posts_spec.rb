@@ -2,8 +2,10 @@
  
  feature 'Posts' do
    context 'when the user has authenticated' do
+     let(:user) { create :user }
+
      background do
-       page.driver.browser.basic_authorize 'dhh', 'secret'
+       log_in user
      end
  
      scenario 'can be created' do
@@ -60,16 +62,8 @@
          click_link 'Edit'
          expect(current_path).to eq edit_post_path(Post.first)
        end
-     end
-   end
- 
-   context 'when the user has authenticated and javascript is needed' do
-     background do
-       # TODO: Issue basic_auth headers
-     end
- 
-     scenario 'can be deleted from link on posts page', js: true do
-       pending('Unable to issue basic auth when js: true') do
+
+      scenario 'can be deleted fro link on posts page', js: true do
          visit posts_path
          within 'tr:last-child' do
            page.driver.accept_js_confirms!
