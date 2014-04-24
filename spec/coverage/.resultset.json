@@ -1,0 +1,68 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/jaimelyn/projects/msa/blog/spec/factories/comments.rb": [
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/jaimelyn/projects/msa/blog/spec/factories/posts.rb": [
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/jaimelyn/projects/msa/blog/spec/factories/users.rb": [
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/jaimelyn/projects/msa/blog/spec/support/database.rb": [
+        1,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null
+      ],
+      "/home/jaimelyn/projects/msa/blog/spec/support/capybara.rb": [
+        1
+      ],
+      "/home/jaimelyn/projects/msa/blog/spec/support/session_helpers.rb": [
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null
+      ]
+    },
+    "timestamp": 1398361037
+  }
+}
