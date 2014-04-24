@@ -1,8 +1,12 @@
 require_relative '../spec_helper'
 
 feature 'Comments' do
+  let(:user) { create :user }
+
   background do
-    @comment = build :comment, body: 'This is the comment'
+    log_in user
+
+    @comment = build :comment, body: 'This is the comment', user: user
     @post = create :post
     @post.comments << @comment
     @post.save
@@ -16,12 +20,12 @@ feature 'Comments' do
     expect(current_path).to eq post_path(@post)
     expect(page).to have_content('Comment: Great post!')
   end
-end
 
-scenario 'can be deleted', js: true do
-  visit post_path(@post)
-  expect(page).to have_content 'This is the comment'
-  page.driver.accept_js_confirms!
-  click_link 'Destroy Comment'
-  expect(page).not_to have_content 'This is the comment'
+  scenario 'can be deleted', js: true do
+    visit post_path(@post)
+    expect(page).to have_content 'This is the comment'
+    page.driver.accept_js_confirms!
+    click_link 'Destroy Comment'
+    expect(page).not_to have_content 'This is the comment'
+  end
 end

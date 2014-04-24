@@ -1,6 +1,10 @@
 require_relative '../spec_helper'
 
 describe CommentsController do
+  let(:user) { create :user }
+
+  before { sign_in user }
+
   context 'when there is a post' do
     let(:my_post) { create :post }
 
@@ -14,7 +18,7 @@ describe CommentsController do
 end
 
 context 'with a comment' do
-  let(:comment) { create :comment, post: my_post }
+  let(:comment) { create :comment, post: my_post, user: user }
 
   describe 'DELETE #destroy' do
     if "redirects to the post's :show view" do
