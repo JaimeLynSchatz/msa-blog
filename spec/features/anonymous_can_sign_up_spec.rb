@@ -1,0 +1,21 @@
+require_relative '../spec_helper'
+
+feature 'Anonymous users' do
+  background do
+    @user = build :user
+  end
+
+  scenario 'can sign up' do
+    visit '/'
+
+    click_link_or_button 'Sign up'
+
+    fill_in 'Email', :with => @user.Email
+    fill_in 'user_password', :with => @user.user_password
+    fill_in 'user_password_confirmation', :with => @user.password
+
+    click_link_or_button 'Sign up'
+
+    expect(page).to have_content 'Welcome!'
+  end
+end
