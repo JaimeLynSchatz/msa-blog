@@ -1,6 +1,6 @@
 <h1>Hello, Rails!</h1>
 <%= link_to "My Blog", controller: "posts" %>
-<%= if current_user %>
+<% if current_user %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path %>
