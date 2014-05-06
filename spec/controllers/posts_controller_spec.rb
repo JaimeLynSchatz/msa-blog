@@ -49,7 +49,7 @@ describe PostsController do
   describe 'POST #create' do
    context 'when the post is valid' do
     it "redirects to the :show view" do
-      post :create, psot: { title: 'title', text: 'text' }
+      post :create, post: { title: 'title', text: 'text' }
       expect(response).to redirect_to assigns[:post]
     end
    end
