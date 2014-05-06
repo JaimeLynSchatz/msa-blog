@@ -12,7 +12,7 @@ feature 'Users' do
     click_link_or_button 'Sign in'
 
     fill_in 'Email', :with => @user.email
-    fill_in 'user_passoword', :with => @user.user_passoword
+    fill_in 'user_password', :with => @user.user_password
 
     click_link_or_button 'Sign in'
 
