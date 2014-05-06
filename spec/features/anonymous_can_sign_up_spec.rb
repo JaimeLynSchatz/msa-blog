@@ -11,7 +11,7 @@ feature 'Anonymous users' do
     click_link_or_button 'Sign up'
 
     fill_in 'Email', :with => @user.email
-    fill_in 'user_password', :with => @user.user_password
+    fill_in 'user_password', :with => @user.password
     fill_in 'user_password_confirmation', :with => @user.password
 
     click_link_or_button 'Sign up'
