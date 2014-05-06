@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 
 describe Post do
-  it { should have_many :comments.dependent(:destroy) }
+  it { should have_many(:comments).dependent(:destroy) }
   it { should belong_to(:user) }
   
   describe '#title' do
