@@ -33,4 +33,10 @@ Blog::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # sorry attempt at a workaround from 
+  # http://stackoverflow.com/questions/14629491/capybara-tests-with-js-true-routing-error-no-route-matches-get-assets
+  config.assets.debug = true
+  # Documentation from http://guides.rubyonrails.org/asset_pipeline.html#upgrading-from-old-versions-of-rails
+  # says it's not needed usually, but we'll see if it helps
 end
