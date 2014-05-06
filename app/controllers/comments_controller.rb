@@ -4,6 +4,7 @@ before_filter :authenticate_user!
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(params[:comment].permit(:commenter, :body))
+    @comment.user = current_user
     redirect_to post_path(@post)
   end
 
