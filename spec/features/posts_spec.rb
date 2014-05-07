@@ -44,6 +44,7 @@ feature 'Posts' do
       scenario 'can be edited from link on posts page' do
         visit posts_path
         within 'tr:last' do
+          save_and_open_page
           click_link 'Edit'
           expect(current_path).to eq edit_post_path(@post2)
         end
