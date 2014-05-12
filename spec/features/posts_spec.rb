@@ -44,7 +44,6 @@ feature 'Posts' do
       scenario 'can be edited from link on posts page' do
         visit posts_path
         within 'tr:last' do
-          save_and_open_page
           click_link 'Edit'
           expect(current_path).to eq edit_post_path(@post2)
         end
@@ -66,7 +65,8 @@ feature 'Posts' do
 
       scenario 'can be deleted from link on posts page', js: true do
         visit posts_path
-        within 'tr > td' do
+        within 'tr:last-child' do
+          save_and_open_page
           page.driver.accept_js_confirms!
           click_link 'Destroy'
           expect(current_path).to eq posts_path
