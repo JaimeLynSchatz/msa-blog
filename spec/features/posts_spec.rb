@@ -65,7 +65,7 @@ feature 'Posts' do
 
       scenario 'can be deleted from link on posts page', js: true do
         visit posts_path
-        within 'tr:last-child' do
+        within 'tr:last' do
           save_and_open_page
           page.driver.accept_js_confirms!
           click_link 'Destroy'
