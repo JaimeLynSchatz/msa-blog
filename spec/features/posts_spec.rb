@@ -68,6 +68,7 @@ feature 'Posts' do
         within 'tr:last' do
           save_and_open_page
           page.driver.accept_js_confirms!
+          save_and_open_page
           click_link 'Destroy'
           expect(current_path).to eq posts_path
           expect(page).not_to have_content('My second post')
